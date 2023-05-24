@@ -4,7 +4,6 @@ function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     return moves[randomNumber]
 }
-console.log(getComputerChoice());
 
 function playRound() {
     let computerChoice = getComputerChoice();
@@ -25,7 +24,7 @@ function playRound() {
     }
 }
 
-function moveRock() {
+function moveRock(computerChoice) {
     switch(computerChoice) {
         case "rock": 
             console.log("Draw");
@@ -39,7 +38,7 @@ function moveRock() {
     }
 }
 
-function movePaper() {
+function movePaper(computerChoice) {
     switch(computerChoice) {
         case "rock": 
             console.log("Win");
@@ -53,7 +52,7 @@ function movePaper() {
     }       
 }
 
-function moveScissors() {
+function moveScissors(computerChoice) {
     switch(computerChoice) {
         case "rock": 
             console.log("Lose");
@@ -66,3 +65,5 @@ function moveScissors() {
             break;
     }   
 }
+
+playRound();
