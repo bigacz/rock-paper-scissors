@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
+h1 {
+    text-align: center;
+    background-color: yellow;
+}
+
+.main {
+    border: 2px solid red;
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logs {
+    flex: 2;
+    display: flex;
+    flex-flow: column;
+    align-items: center
+}

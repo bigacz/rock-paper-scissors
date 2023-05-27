@@ -1,20 +1,29 @@
-const moves = ["rock", "paper", "scissors"]
+const buttons = document.getElementById('buttons').childNodes;
+const humanScore = document.getElementById('human');
+const computerScore = document.getElementById('computer');
+const divLogs = document.getElementById('logs')
+
+buttons.forEach(button => button.addEventListener('click', playRound));
 
 function getComputerChoice() {
+    const moves = ["rock", "paper", "scissors"];
     let randomNumber = Math.floor(Math.random() * 3);
     return moves[randomNumber]
 }
 
-function playRound() {
+function playRound(element) {
     let computerChoice = getComputerChoice();
-    let playerChoice = prompt("Your move")?.toLowerCase();
+    let playerChoice = element.currentTarget.id;
     switch(playerChoice) {
         case "rock":
-            return moveRock(computerChoice);
+            moveRock(computerChoice);
+            break;
         case "paper":
-            return movePaper(computerChoice);
+            movePaper(computerChoice);
+            break;
         case "scissors":
-            return moveScissors(computerChoice);
+            moveScissors(computerChoice);
+            break;
         default:
             console.log("Wrong input!");
             playRound();
@@ -22,67 +31,64 @@ function playRound() {
 }
 
 function moveRock(computerChoice) {
-    let result;
+    const choice = "rock";
     switch(computerChoice) {
-        case "rock": 
-            return 0;
+        case "rock":
+            outcome(computerChoice, choice, 0);
+            break;
         case "paper":
-            return -1;
+            outcome(computerChoice, choice, -1);
+            break;
         case "scissors":
-            return 1
+            outcome(computerChoice, choice, 1);
+            break;
 
     } 
 }
 
 function movePaper(computerChoice) {
+    const choice = "paper";
     switch(computerChoice) {
         case "rock": 
-            return 1
+            outcome(computerChoice, choice, 1);
+            break;
         case "paper":
-            return 0;
+            outcome(computerChoice, choice, 0);
+            break;
         case "scissors":
-            return -1;
+            outcome(computerChoice, choice, -1);
+            break;
     }        
 }
 
 function moveScissors(computerChoice) {
+    const choice = "scissors";
     switch(computerChoice) {
         case "rock": 
-            return -1;
+            outcome(computerChoice, choice, -1);
+            break;
         case "paper":
-            return 1
+            outcome(computerChoice, choice, 1);
+            break;
         case "scissors":
-            return 0;
+            outcome(computerChoice, choice, 0);
+            break;
     }  
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    while(playerScore < 5 && computerScore < 5)
-    {
-        let result = playRound();
-        switch(result) {
-            case 1:
-                playerScore++;
-                console.log("Win");
-                break;
-            case -1:  
-                computerScore++;
-                console.log("Lose");
-                break;
-            default:
-                console.log("Draw");
-                break;            
-        }
-        console.log(`You: ${playerScore} Computer: ${computerScore}`)
-    }
-    if(playerScore >= 5) {
-        console.log("You WON the game!")
-    }
-    else {
-        console.log("You LOST the game!")
-    }
-}
+function outcome(computerChoice, playerChoice, result) {
+    const outcomeLog = document.createElement('p');
 
-game();
+    if(result === 1) {
+        computerScore.textContent--;
+        outcomeLog.textContent = "You win!";
+    } else if(result === -1) {
+        humanScore.textContent--;
+        outcomeLog.textContent = "You lose!";
+    } else {
+        outcomeLog.textContent = "It's a draw!";
+    }
+    outcomeLog.textContent += 
+    ` You used ${playerChoice} and computer used ${computerChoice}`;
+    divLogs.appendChild(outcomeLog);
+}
