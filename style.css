@@ -17,6 +17,10 @@ h1 {
 
 }
 
+h2 {
+    font-size: 50px;
+}
+
 .main {
     background-color: rgb(34, 33, 33);
     flex: 2;
@@ -31,6 +35,12 @@ h1 {
     background-color: rgb(65, 61, 61);
     color: limegreen;
     font-size: 30px;
+}
+
+.endState {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 #human {
@@ -50,7 +60,7 @@ h1 {
     align-items: center;
     gap: 8px;
     background-color: rgb(39, 37, 37);
-    padding: 20px 0;
+    padding: 60px 0;
 }
 
 .logsPara {

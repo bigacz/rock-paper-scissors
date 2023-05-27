@@ -98,7 +98,7 @@ function outcome(computerChoice, playerChoice, result) {
         outcomeLog.textContent = "It's a draw!";
     }
     outcomeLog.textContent += 
-    ` You used ${playerChoice} and computer used ${computerChoice}`;
+    ` You used ${playerChoice} and computer used ${computerChoice}.`;
     divLogs.insertBefore(outcomeLog, divLogs.firstChild)
 
     if(divLogs.childElementCount > 7) divLogs.removeChild(divLogs.lastChild)
@@ -106,13 +106,15 @@ function outcome(computerChoice, playerChoice, result) {
         removeAllChildNodes(buttonsDiv);
         gameEndPara.textContent = "You Win!";
         gameEndPara.style.color = "limegreen";
-        buttonsDiv.append(gameEndPara);
+        buttonsDiv.classList.add('endState');
+        buttonsDiv.appendChild(gameEndPara);
         buttonsDiv.appendChild(restartButton);
     }
     if (humanScore.textContent < 1) {
         removeAllChildNodes(buttonsDiv);
         gameEndPara.textContent = "You Lose!";
         gameEndPara.style.color = "red";
+        buttonsDiv.classList.add('endState');
         buttonsDiv.appendChild(gameEndPara);
         buttonsDiv.appendChild(restartButton);
     }
