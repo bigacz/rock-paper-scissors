@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'SilkScreen', sans-serif;
 }
 
 body {
@@ -12,20 +12,56 @@ body {
 
 h1 {
     text-align: center;
-    background-color: yellow;
+    background-color: black;
+    color: limegreen;
+
 }
 
 .main {
-    border: 2px solid red;
+    background-color: rgb(34, 33, 33);
     flex: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#logs {
+#buttons button {
+    height: 150px;
+    width: 150px;
+    background-color: rgb(65, 61, 61);
+    color: limegreen;
+    font-size: 30px;
+}
+
+#human {
+    font-size: 90px;
+    color: limegreen;
+}
+
+#computer {
+    font-size: 90px;
+    color: red;
+}
+
+.logs {
     flex: 2;
     display: flex;
     flex-flow: column;
-    align-items: center
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(39, 37, 37);
+    padding: 20px 0;
+}
+
+.logsPara {
+    color: limegreen;
+    margin-bottom: 15px;
+    font-size: 20px;   
+}
+
+footer {
+    background-color: black;
+    color: limegreen;
+    font-size: 20px;
+    text-align: center;
 }
