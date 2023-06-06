@@ -3,7 +3,22 @@ const humanScore = document.getElementById('human');
 const computerScore = document.getElementById('computer');
 const divLogs = document.getElementById('logsbox')
 
-buttons.forEach(button => button.addEventListener('click', playRound));
+const githubIcon = document.getElementById(`githubIcon`)
+githubIcon.addEventListener(`mouseover`, e => {
+    e.currentTarget.classList.add(`githubHover`);
+})
+githubIcon.addEventListener(`mouseleave`, e => {
+    e.currentTarget.classList.remove(`githubHover`);
+})
+
+
+buttons.forEach(button => {
+    button.addEventListener('click', playRound)
+    button.addEventListener('mouseover', e => 
+        e.currentTarget.classList.add(`buttonClicked`))
+    button.addEventListener('mouseleave', e => 
+        e.currentTarget.classList.remove(`buttonClicked`))
+});
 
 function getComputerChoice() {
     const moves = ["rock", "paper", "scissors"];

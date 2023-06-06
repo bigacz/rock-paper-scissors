@@ -1,19 +1,20 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'SilkScreen', sans-serif;
+    color: #cfcfcf;
+    font-family: Tahoma, sans-serif;
 }
 
 body {
     height: 100vh;
     display: flex;
     flex-flow: column;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 h1 {
     text-align: center;
-    background-color: black;
-    color: limegreen;
+    background-color: #303030;
     font-size: 60px;
 
 }
@@ -23,7 +24,7 @@ h2 {
 }
 
 .main {
-    background-color: rgb(34, 33, 33);
+    background-color: #404040;
     flex: 2;
     display: flex;
     justify-content: space-between;
@@ -33,9 +34,16 @@ h2 {
 #buttons button {
     height: 150px;
     width: 150px;
-    background-color: rgb(65, 61, 61);
-    color: limegreen;
+    background-color: #303030;
     font-size: 30px;
+    border-radius: 5%;
+    border: 1px #202020 solid;
+}
+
+.buttonClicked {
+    transform: scale(1.050);
+    transition: all 0.1s;
+    border-color:#404040;
 }
 
 .endState {
@@ -44,13 +52,17 @@ h2 {
     align-items: center;
 }
 
-#human {
+#human, #computer {
     font-size: 90px;
+    color: limegreen;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#human {
     color: limegreen;
 }
 
 #computer {
-    font-size: 90px;
     color: red;
 }
 
@@ -60,20 +72,27 @@ h2 {
     flex-flow: column;
     align-items: center;
     gap: 8px;
-    background-color: rgb(39, 37, 37);
+    background-color: #505050;
     padding: 60px 0;
 }
 
 .logsPara {
-    color: limegreen;
     margin-bottom: 15px;
     font-size: 20px;   
 }
 
 footer {
-    background-color: black;
-    color: limegreen;
-    font-size: 20px;
-    text-align: center;
-    padding: 2px;
+    background-color: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    flex: 0 1 40px;
+    gap: 20px;
+    font-size: 25px;
+    font-family: Tahoma, sans-serif;
+}
+
+.githubHover {
+    transform: scale(1.1);
 }
